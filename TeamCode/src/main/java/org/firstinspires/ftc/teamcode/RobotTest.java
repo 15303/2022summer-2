@@ -17,16 +17,23 @@ public class RobotTest extends LinearOpMode {
 
         sleep(1000);
 
-        if (gamepad1.a) {
-            //this code in the curly braces will only be run if the a button is pressed down
-            //except that this method only runs once so you would have to be holding down the a button
-            //at the very beginning to run this code once
-
-        }
         //so we want something that runs coninuously we do that using a while loop
         while (opModeIsActive()) {
-            double eaj = -gamepad1.right_stick_y;
+            double drive = -gamepad1.right_stick_y; //normally gamepad1.right_stick_y is reversed, so we make it negative
+            double turn = gamepad1.right_stick_x;
+            robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
 
+            robot.aim(gamepad2.left_stick_x);
+            robot.lift(-gamepad2.left_stick_y);
+            robot.spinCarousel(gamepad2.right_trigger - gamepad2.left_trigger);
+
+            if (gamepad2.a) {
+                robot.grab(1);
+            } else if (gamepad2.b) {
+                robot.grab(-1);
+            } else {
+                robot.grab(0);
+            }
         }
     }
 

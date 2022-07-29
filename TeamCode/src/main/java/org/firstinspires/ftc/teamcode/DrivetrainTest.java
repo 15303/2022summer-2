@@ -10,13 +10,14 @@ public class DrivetrainTest extends LinearOpMode {
     DcMotor right;
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode() {
         left = hardwareMap.get(DcMotor.class, "left");
         right = hardwareMap.get(DcMotor.class, "right");
 
         left.setDirection(DcMotor.Direction.REVERSE);
 
         waitForStart();
+
 
         while (opModeIsActive()) {
             double drive = -gamepad1.right_stick_y - 0.4 * gamepad1.left_stick_y;

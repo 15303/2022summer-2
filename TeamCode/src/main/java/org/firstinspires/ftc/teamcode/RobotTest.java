@@ -12,14 +12,10 @@ public class RobotTest extends LinearOpMode {
 
         waitForStart(); //required
 
-        robot.left.setPower(0.5); //turn on the left motor
-        robot.right.setPower(0.5); //turn on the right motor
-
-        sleep(1000);
-
         //so we want something that runs coninuously we do that using a while loop
         while (opModeIsActive()) {
-            double drive = -gamepad1.right_stick_y; //normally gamepad1.right_stick_y is reversed, so we make it negative
+            //normally gamepad1.right_stick_y is reversed, so we make it negative
+            double drive = -gamepad1.right_stick_y;
             double turn = gamepad1.right_stick_x;
             robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
 

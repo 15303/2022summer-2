@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.max;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Robot;
 
@@ -22,6 +23,17 @@ public class MaxTeleOp extends LinearOpMode {
             double drive = -gamepad1.right_stick_y * 0.6 * driveMultFactor;
             double turn = gamepad1.right_stick_x * 0.6 * driveMultFactor;
             robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
+
+            if (gamepad1.x) { //Move the arm to the desired position, hopefully works?
+                robot.aimer.setTargetPosition(robot.aimer.getCurrentPosition());
+            } else if (gamepad1.y) {
+                robot.aimer.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                if (robot.aimer.getCurrentPosition() < robot.aimer.getTargetPosition()) {
+                    robot.aimer.setPower(0.03);
+                } else {
+                    robot.aimer.setPower(-0.03);
+                }
+            }
 
             if (abs(-gamepad1.left_stick_y) < 0.4) {
                 robot.aim(gamepad1.left_stick_x * 0.2);
@@ -57,6 +69,8 @@ public class MaxTeleOp extends LinearOpMode {
             Dpad down locks the grabber so it keeps rotating as currently is, Dpad up negates this
             Dpad left turns on precision driving mode, making driving 0.3 times slower, Dpad right negates thsi
             Carousel driven by the big buttons on the top of the controller.
+            Pressing x will set the desired position of the arm mover thing, can set it while at the optimal grabber pos
+            Pressing y will make the arm seek that position
              */
         }
     }

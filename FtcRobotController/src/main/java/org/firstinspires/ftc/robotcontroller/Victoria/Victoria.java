@@ -1,4 +1,4 @@
 package org.firstinspires.ftc.robotcontroller.Victoria;
 
-public class Test {
+public class Victoria {
 }

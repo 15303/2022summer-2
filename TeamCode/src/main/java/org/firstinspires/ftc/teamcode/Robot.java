@@ -33,6 +33,8 @@ public class Robot {
         lifter = opMode.hardwareMap.get(DcMotor.class, "lifter");
 
         left.setDirection(DcMotor.Direction.REVERSE);
+
+        lifter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     public void initServos() {

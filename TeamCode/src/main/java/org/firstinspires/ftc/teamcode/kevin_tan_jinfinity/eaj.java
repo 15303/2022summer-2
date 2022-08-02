@@ -1,14 +1,12 @@
-package org.firstinspires.ftc.teamcode.L;
+package org.firstinspires.ftc.teamcode.kevin_tan_jinfinity;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Robot;
 
-package org.firstinspires.ftc.teamcode;
 //hi
-        import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-        import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
 
 @TeleOp(name="eid")
 public class eaj extends LinearOpMode {
@@ -23,17 +21,19 @@ public class eaj extends LinearOpMode {
         while (opModeIsActive()) {
             //normally gamepad1.right_stick_y is reversed, so we make it negative
             int x = 0;
+            double drive;
+            double turn;
             if (x == 0) {
-                double drive = -gamepad1.right_stick_y * 0.5;
-                double turn = gamepad1.right_stick_x * 0.5;
+                drive = -gamepad1.right_stick_y * 0.3;
+                 turn = gamepad1.right_stick_x * 0.3;
             }
             else if (x == 1) {
-                double drive = -gamepad1.right_stick_y * 0.75;
-                double turn = gamepad1.right_stick_x * 0.75;
+                drive = -gamepad1.right_stick_y * 0.5;
+                turn = gamepad1.right_stick_x * 0.5;
             }
             else {
-                double drive = -gamepad1.right_stick_y;
-                double turn = gamepad1.right_stick_x;
+                drive = -gamepad1.right_stick_y * 0.7;
+                turn = gamepad1.right_stick_x * 0.7;
             }
             robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
             if (gamepad1.left_bumper) {
@@ -44,9 +44,21 @@ public class eaj extends LinearOpMode {
                     x++;
                 }
             }
-            robot.aim(gamepad2.left_stick_x);
-            robot.lift(-gamepad2.left_stick_y);
-            robot.spinCarousel(gamepad2.right_trigger - gamepad2.left_trigger);
+            int y = 0;
+            if (gamepad1.left_trigger > 0) {
+                if (y > 0) {
+                    y = 0;
+                    robot.grab(0);
+                }
+                else {
+                    robot.grab(1);
+                    y++;
+                }
+            }
+
+            robot.aim(gamepad2.left_stick_x * 0.5);
+            robot.lift(-gamepad2.left_stick_y * 0.5);
+            robot.spinCarousel((gamepad2.right_trigger - gamepad2.left_trigger) * 0.5);
 
             if (gamepad2.a) {
                 robot.grab(1);

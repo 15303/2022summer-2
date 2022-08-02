@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Robot;
 
-@TeleOp(name="RobotTest")
+@TeleOp(name="VictoriaTeleOp2")
 public class VictoriaTeleOp extends LinearOpMode {
     private Robot robot; //store the robot
 
@@ -21,8 +21,8 @@ public class VictoriaTeleOp extends LinearOpMode {
             double turn = gamepad1.right_stick_x;
             robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
 
-            robot.aim(gamepad2.left_stick_x);
-            robot.lift(-gamepad2.left_stick_y);
+            robot.aim(gamepad2.left_stick_x * 0.5);
+            robot.lift(-gamepad2.left_stick_y * 0.5);
             robot.spinCarousel(gamepad2.right_trigger - gamepad2.left_trigger);
 
             if (gamepad2.a) {

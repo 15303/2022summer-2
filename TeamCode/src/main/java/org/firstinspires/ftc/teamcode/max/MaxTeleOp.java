@@ -24,16 +24,16 @@ public class MaxTeleOp extends LinearOpMode {
             double turn = gamepad1.right_stick_x * 0.6 * driveMultFactor;
             robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
 
-            if (gamepad1.x) { //Move the arm to the desired position, hopefully works?
+            /*if (gamepad1.x) { //Move the arm to the desired position, hopefully works?
                 robot.aimer.setTargetPosition(robot.aimer.getCurrentPosition());
             } else if (gamepad1.y) {
-                robot.aimer.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+                robot.aimer.setMode(DcMotor.RunMode.RUN_TO_POSITION); //Turns the better way hopefully
                 if (robot.aimer.getCurrentPosition() < robot.aimer.getTargetPosition()) {
                     robot.aimer.setPower(0.03);
                 } else {
                     robot.aimer.setPower(-0.03);
                 }
-            }
+            }*/ //Decommisioned fo rnow
 
             if (abs(-gamepad1.left_stick_y) < 0.4) {
                 robot.aim(gamepad1.left_stick_x * 0.2);

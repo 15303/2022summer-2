@@ -17,13 +17,13 @@ public class MaxTeleOp extends LinearOpMode {
         //so we want something that runs coninuously we do that using a while loop
         while (opModeIsActive()) {
             //normally gamepad1.right_stick_y is reversed, so we make it negative
-            double drive = -gamepad1.right_stick_y * 0.7;
-            double turn = gamepad1.right_stick_x * 0.7;
+            double drive = -gamepad1.right_stick_y * 0.6;
+            double turn = gamepad1.right_stick_x * 0.6;
             robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
 
-            robot.aim(gamepad2.left_stick_x * 0.5);
-            robot.lift(-gamepad2.left_stick_y * 0.5);
-            robot.spinCarousel(gamepad2.right_trigger - gamepad2.left_trigger);
+            robot.aim(gamepad1.left_stick_x * 0.5);
+            robot.lift(-gamepad1.left_stick_y * 0.5);
+            robot.spinCarousel(gamepad1.right_trigger - gamepad1.left_trigger);
 
             if (gamepad2.a) {
                 robot.grab(1);

@@ -24,16 +24,16 @@ public class eaj extends LinearOpMode {
             double drive;
             double turn;
             if (x == 0) {
-                drive = -gamepad1.right_stick_y * 0.3;
-                 turn = gamepad1.right_stick_x * 0.3;
+                drive = -gamepad1.left_stick_y * 0.3;
+                 turn = gamepad1.left_stick_x * 0.3;
             }
             else if (x == 1) {
-                drive = -gamepad1.right_stick_y * 0.5;
-                turn = gamepad1.right_stick_x * 0.5;
+                drive = -gamepad1.left_stick_y * 0.5;
+                turn = gamepad1.left_stick_x * 0.5;
             }
             else {
-                drive = -gamepad1.right_stick_y * 0.7;
-                turn = gamepad1.right_stick_x * 0.7;
+                drive = -gamepad1.left_stick_y * 0.7;
+                turn = gamepad1.left_stick_x * 0.7;
             }
             robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
             if (gamepad1.left_bumper) {

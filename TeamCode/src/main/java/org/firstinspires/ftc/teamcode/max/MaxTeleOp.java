@@ -11,6 +11,7 @@ public class MaxTeleOp extends LinearOpMode {
     private Robot robot; //store the robot
     private boolean lockGrabber = false;
     private float driveMultFactor = 1;
+    private float lifterMultFactor = 1;
 
     public void runOpMode() {
         robot = new Robot(this); //create a new Robot
@@ -36,7 +37,7 @@ public class MaxTeleOp extends LinearOpMode {
             }*/ //Decommisioned fo rnow
 
             robot.aim(gamepad2.left_stick_x * 0.4);
-            robot.lift(-gamepad2.left_stick_y * 0.5);
+            robot.lift(-gamepad2.left_stick_y * 0.5 * lifterMultFactor);
             robot.spinCarousel(gamepad2.right_trigger - gamepad1.left_trigger);
 
             if (gamepad2.dpad_down) { //Dpad logic to turn on grabber locks, precision mode
@@ -44,6 +45,12 @@ public class MaxTeleOp extends LinearOpMode {
             } else if (gamepad2.dpad_up) {
                 lockGrabber = false;
             }
+            if (gamepad2.dpad_left) {
+                lifterMultFactor = 0.3f;
+            } else if (gamepad2.dpad_right) {
+                lifterMultFactor = 1;
+            }
+
             if (gamepad1.dpad_down) {
                 driveMultFactor = 0.3f;
             } else if (gamepad1.dpad_up) {

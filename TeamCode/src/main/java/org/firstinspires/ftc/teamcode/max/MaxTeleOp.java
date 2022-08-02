@@ -25,9 +25,9 @@ public class MaxTeleOp extends LinearOpMode {
             robot.lift(-gamepad1.left_stick_y * 0.5);
             robot.spinCarousel(gamepad1.right_trigger - gamepad1.left_trigger);
 
-            if (gamepad2.a) {
+            if (gamepad1.a) {
                 robot.grab(1);
-            } else if (gamepad2.b) {
+            } else if (gamepad1.b) {
                 robot.grab(-1);
             } else {
                 robot.grab(0);

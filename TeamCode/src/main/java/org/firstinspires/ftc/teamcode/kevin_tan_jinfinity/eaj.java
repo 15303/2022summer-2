@@ -24,16 +24,16 @@ public class eaj extends LinearOpMode {
             double drive;
             double turn;
             if (x == 0) {
-                drive = -gamepad1.right_stick_y * 0.5;
-                 turn = gamepad1.right_stick_x * 0.5;
+                drive = -gamepad1.right_stick_y * 0.3;
+                 turn = gamepad1.right_stick_x * 0.3;
             }
             else if (x == 1) {
-                drive = -gamepad1.right_stick_y * 0.75;
-                turn = gamepad1.right_stick_x * 0.75;
+                drive = -gamepad1.right_stick_y * 0.5;
+                turn = gamepad1.right_stick_x * 0.5;
             }
             else {
-                drive = -gamepad1.right_stick_y;
-                turn = gamepad1.right_stick_x;
+                drive = -gamepad1.right_stick_y * 0.7;
+                turn = gamepad1.right_stick_x * 0.7;
             }
             robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
             if (gamepad1.left_bumper) {
@@ -44,9 +44,21 @@ public class eaj extends LinearOpMode {
                     x++;
                 }
             }
-            robot.aim(gamepad2.left_stick_x);
-            robot.lift(-gamepad2.left_stick_y);
-            robot.spinCarousel(gamepad2.right_trigger - gamepad2.left_trigger);
+            int y = 0;
+            if (gamepad1.left_trigger > 0) {
+                if (y > 0) {
+                    y = 0;
+                    robot.grab(0);
+                }
+                else {
+                    robot.grab(1);
+                    y++;
+                }
+            }
+
+            robot.aim(gamepad2.left_stick_x * 0.5);
+            robot.lift(-gamepad2.left_stick_y * 0.5);
+            robot.spinCarousel((gamepad2.right_trigger - gamepad2.left_trigger) * 0.5);
 
             if (gamepad2.a) {
                 robot.grab(1);

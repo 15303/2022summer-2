@@ -24,9 +24,9 @@ public class AlexTeleOp extends LinearOpMode {
             robot.driveComponent(drive + driveSlow, turn + turnSlow); //power the drive motors given the joystick controls
 
             float left_stick_x = gamepad2.left_stick_x;
-            robot.aim( left_stick_x * 0.4);
+            robot.aim( left_stick_x * 0.3);
             float left_stick_y = gamepad2.left_stick_y;
-            robot.lift(left_stick_y * 0.4);
+            robot.lift(left_stick_y * 0.3);
             robot.spinCarousel(gamepad2.right_trigger - gamepad2.left_trigger);
 
             if (gamepad2.a) {

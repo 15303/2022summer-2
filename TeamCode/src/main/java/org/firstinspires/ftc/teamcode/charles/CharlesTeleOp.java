@@ -23,7 +23,7 @@ public class CharlesTeleOp extends LinearOpMode {
 
             float left_stick_x = gamepad2.left_stick_x;
             robot.aim(left_stick_x * 0.5);
-            float left_stick_y = -gamepad2.left_stick_y;
+            float left_stick_y = -gamepad2.right_stick_y;
             robot.lift(left_stick_y * 0.5);
             robot.spinCarousel(gamepad2.right_trigger - gamepad2.left_trigger);
 
@@ -31,7 +31,7 @@ public class CharlesTeleOp extends LinearOpMode {
                 robot.grab(1);
             } else if (gamepad2.b) {
                 robot.grab(-1);
-            } else {
+            } else if (gamepad2.right_bumper) {
                 robot.grab(0);
             }
         }

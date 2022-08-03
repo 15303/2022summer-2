@@ -41,7 +41,7 @@ private Robot robot;
         sleep(300);
         robot.lifter.setPower(0);
 
-        robot.turnDegrees(90);
+        robot.turnDegrees(-90);
 
         sleep(4000); //Transition
 

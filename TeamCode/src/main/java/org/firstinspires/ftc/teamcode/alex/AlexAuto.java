@@ -13,13 +13,13 @@ public class AlexAuto extends LinearOpMode {
         robot = new Robot(this);
 
         waitForStart();
-        robot.lift(0.3);
+        robot.lift(0.25);
         sleep(600);
         robot.lift(0);
-        robot.drive(0.48);
+        robot.drive(0.45);
         sleep(600);
         robot.drive(0);
-        robot.lift(-0.25);
+        robot.lift(-0.3);
         sleep(100);
         robot.lift(0);
         robot.grab(1);

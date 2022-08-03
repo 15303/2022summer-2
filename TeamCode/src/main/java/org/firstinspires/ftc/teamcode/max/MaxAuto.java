@@ -54,10 +54,10 @@ private Robot robot;
         sleep(2000); //Transition
 
         robot.drive(-0.4); //Going to the carousel and spinning it
-        sleep(1500);
+        sleep(1650);
         robot.drive(0);
         robot.spinCarousel(0.3);
-        sleep(3500);
+        sleep(4500);
         robot.spinCarousel(1);
         sleep(1000);
         robot.spinCarousel(0);

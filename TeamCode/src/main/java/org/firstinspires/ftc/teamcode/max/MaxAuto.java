@@ -47,8 +47,9 @@ private Robot robot;
 
         //robot.turnDegrees(90);
         robot.turn(-0.5);
-        sleep(800);
+        sleep(600);
         robot.turn(0);
+        robot.drive(0);
 
         sleep(2000); //Transition
 

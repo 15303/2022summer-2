@@ -11,6 +11,7 @@ public class MaxTeleOp extends LinearOpMode {
     private Robot robot; //store the robot
     private boolean lockGrabber = false;
     private float driveMultFactor = 1;
+    private float lifterMultFactor = 1;
 
     public void runOpMode() {
         robot = new Robot(this); //create a new Robot
@@ -35,26 +36,30 @@ public class MaxTeleOp extends LinearOpMode {
                 }
             }*/ //Decommisioned fo rnow
 
-            if (abs(-gamepad1.left_stick_y) < 0.4) {
-                robot.aim(gamepad1.left_stick_x * 0.2);
-            }
-            robot.lift(-gamepad1.left_stick_y * 0.5);
-            robot.spinCarousel(gamepad1.right_trigger - gamepad1.left_trigger);
+            robot.aim(gamepad2.left_stick_x * 0.4);
+            robot.lift(-gamepad2.left_stick_y * 0.5 * lifterMultFactor);
+            robot.spinCarousel(gamepad2.right_trigger - gamepad1.left_trigger);
 
-            if (gamepad1.dpad_down) { //Dpad logic to turn on grabber locks, precision mode
+            if (gamepad2.dpad_down) { //Dpad logic to turn on grabber locks, precision mode
                 lockGrabber = true;
-            } else if (gamepad1.dpad_up) {
+            } else if (gamepad2.dpad_up) {
                 lockGrabber = false;
             }
-            if (gamepad1.dpad_left) {
+            if (gamepad2.dpad_left) {
+                lifterMultFactor = 0.3f;
+            } else if (gamepad2.dpad_right) {
+                lifterMultFactor = 1;
+            }
+
+            if (gamepad1.dpad_down) {
                 driveMultFactor = 0.3f;
-            } else if (gamepad1.dpad_right) {
+            } else if (gamepad1.dpad_up) {
                 driveMultFactor = 1;
             }
 
-            if (gamepad1.a) {
+            if (gamepad2.a) {
                 robot.grab(1);
-            } else if (gamepad1.b) {
+            } else if (gamepad2.b) {
                 robot.grab(-1);
             } else if (!lockGrabber){
                 robot.grab(0);

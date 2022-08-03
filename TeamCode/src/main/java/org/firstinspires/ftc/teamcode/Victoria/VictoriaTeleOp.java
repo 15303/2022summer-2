@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Robot;
 
-@TeleOp(name="VictoriaTeleOp2")
+@TeleOp(name="VictoriaTeleOp")
 public class VictoriaTeleOp extends LinearOpMode {
     private Robot robot; //store the robot
 
@@ -14,7 +14,7 @@ public class VictoriaTeleOp extends LinearOpMode {
 
         waitForStart(); //required
 
-        //so we want something that runs coninuously we do that using a while loop
+        //so we want something that runs continuously we do that using a while loop
         while (opModeIsActive()) {
             //normally gamepad1.right_stick_y is reversed, so we make it negative
             double drive = -gamepad1.right_stick_y;

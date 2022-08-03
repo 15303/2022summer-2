@@ -32,6 +32,8 @@ private Robot robot;
         sleep(2000);
         robot.grabber.setPower(0);
 
+        sleep(4000); //Transition
+
         robot.drive(-0.35);//Turning and driving to be orientated toward the ball
         sleep(1000);
         robot.drive(0);
@@ -39,6 +41,8 @@ private Robot robot;
         robot.turn(0.5);
         sleep(1000);
         robot.turn(0);
+
+        sleep(4000); //Transition
 
         robot.drive(-0.5); //Going to the carousel and spinning it
         sleep(1500);

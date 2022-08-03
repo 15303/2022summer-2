@@ -37,6 +37,9 @@ private Robot robot;
         robot.drive(-0.35);//Turning and driving to be orientated toward the ball
         sleep(1000);
         robot.drive(0);
+        robot.lifter.setPower(-0.3);//Reset the lifter
+        sleep(300);
+        robot.lifter.setPower(0);
 
         robot.turnDegrees(90);
 
@@ -60,5 +63,6 @@ private Robot robot;
     public void initialize() {
         robot.left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         robot.right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.lifter.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 }

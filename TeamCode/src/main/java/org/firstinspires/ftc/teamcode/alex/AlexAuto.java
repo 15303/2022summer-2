@@ -19,18 +19,18 @@ public class AlexAuto extends LinearOpMode {
         robot.drive(0.45);
         sleep(600);
         robot.drive(0);
-        robot.lift(-0.3);
-        sleep(100);
+        robot.lift(-0.25);
+        sleep(300);
         robot.lift(0);
         robot.grab(1);
         sleep(4000);
         robot.grab(0);
 
         robot.drive(-0.45);
-        sleep(60);
+        sleep(600);
         robot.drive(0);
         robot.drive(0.5, 0);
-        sleep(500);
+        sleep(1000);
         robot.drive(0, 0);
     }
 }

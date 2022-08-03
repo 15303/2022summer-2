@@ -18,9 +18,9 @@ public class VictoriaAuto extends LinearOpMode {
         sleep(500);
         robot.drive(0);
         robot.spinCarousel(0.3);
-        sleep(800);
+        sleep(1000);
         robot.spinCarousel(0.6);
-        sleep(500);
+        sleep(850);
         robot.spinCarousel(0);
     }
 }

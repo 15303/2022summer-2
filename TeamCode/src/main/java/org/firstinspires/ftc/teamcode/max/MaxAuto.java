@@ -32,14 +32,14 @@ private Robot robot;
         sleep(4000);
         robot.grabber.setPower(0);
 
-        sleep(2000); //Transition
+        sleep(1000); //Transition
 
         robot.lifter.setPower(0.3); //move lifter to not interfere with shuttle hub
         sleep(100);
         robot.lifter.setPower(0);
 
         robot.drive(-0.35);//Turning and driving to be orientated toward the coursasel
-        sleep(800);
+        sleep(875);
         robot.drive(0);
         robot.lifter.setPower(-0.3);//Reset the lifter
         sleep(350);
@@ -54,7 +54,7 @@ private Robot robot;
         sleep(2000); //Transition
 
         robot.drive(-0.4); //Going to the carousel and spinning it
-        sleep(1650);
+        sleep(1680);
         robot.drive(0);
         robot.spinCarousel(0.3);
         sleep(4500);
@@ -63,7 +63,12 @@ private Robot robot;
         robot.spinCarousel(0);
 
         robot.drive(0.4); //To the end
-        sleep(3000);
+        sleep(2000);
+        robot.turn(-0.3); //turn to make sure not colliding with the object.
+        sleep(100);
+        robot.turn(0);
+        robot.drive(0.4);
+        sleep(1500);
 
 
     }

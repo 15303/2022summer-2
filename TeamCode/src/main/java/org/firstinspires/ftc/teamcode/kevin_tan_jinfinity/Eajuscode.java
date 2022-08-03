@@ -17,24 +17,28 @@ public class Eajuscode extends LinearOpMode {
         waitForStart();
         robot.drive(0.6,0.6);
         sleep(500);
+        //drive to alliance shipping hub
         robot.drive(0);
         robot.lift(0.5);
         sleep(750);
-        robot.drive(0.4,0.40);
+        //lift arm
+        robot.drive(0.25,0.25);
         sleep(250);
+        //precision
         robot.drive(0);
         robot.grab(-1);
         sleep(250);
         robot.grab(0);
-        robot.drive(-0.7,-0.3);
-        sleep(400);
+        //drop element
+        robot.drive(-0.5,-0.3);
+        sleep(500);
         robot.drive(0);
         robot.drive(-0.5);
-        sleep(700);
+        sleep(300);
         robot.drive(0);
         robot.spinCarousel(-0.3);
-        sleep(1000);
-        robot.drive(0.7);
+        sleep(3000);
+        robot.drive(0.4);
         sleep(3000);
         robot.drive(0);
     }

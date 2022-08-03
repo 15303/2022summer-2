@@ -67,7 +67,17 @@ public class eaj extends LinearOpMode {
             }
             robot.lift(-gamepad2.left_stick_y * 0.5);
             robot.spinCarousel((gamepad2.right_trigger - gamepad2.left_trigger) * 0.5);
-
+            int z = 0;
+            while((gamepad2.right_trigger - gamepad2.left_trigger) != 0) {
+                if (z < 1) {
+                    robot.spinCarousel((gamepad2.right_trigger - gamepad2.left_trigger) * 0.3);
+                    sleep(300);
+                    z++;
+                }
+                //else if (){
+               //     robot.spinCarousel((gamepad2.right_trigger - gamepad2.left_trigger) * 0.5);
+                //}
+            }
             if (gamepad2.a) {
                 robot.grab(1);
             } else if (gamepad2.b) {

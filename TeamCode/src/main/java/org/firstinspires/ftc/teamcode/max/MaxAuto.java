@@ -19,13 +19,13 @@ private Robot robot;
         initialize();
 
         robot.lifter.setPower(0.3); //Lifting up the arm for hub
-        sleep(400);
-        robot.lifter.setPower(0);
+        sleep(365);
+        robot.lifter.setPower(-0.05);
 
-        robot.drive(0.4); //Driving to hub carefully
-        sleep(200);
+        robot.drive(0.45); //Driving to hub carefully
+        sleep(120);
         robot.drive(0.25);
-        sleep(1200);
+        sleep(1700);
 
         robot.drive(0); //Offloading the game object onto the hub
         robot.grabber.setPower(1);
@@ -34,14 +34,16 @@ private Robot robot;
 
         sleep(4000); //Transition
 
-        robot.drive(-0.35);//Turning and driving to be orientated toward the ball
-        sleep(1000);
+        robot.drive(-0.35);//Turning and driving to be orientated toward the coursasel
+        sleep(900);
         robot.drive(0);
         robot.lifter.setPower(-0.3);//Reset the lifter
-        sleep(300);
+        sleep(350);
         robot.lifter.setPower(0);
 
-        robot.turnDegrees(90);
+        //robot.turnDegrees(90);
+        robot.turn(-0.5);
+        sleep(900);
 
         sleep(4000); //Transition
 
@@ -49,7 +51,7 @@ private Robot robot;
         sleep(1500);
         robot.drive(0);
         robot.spinCarousel(0.3);
-        sleep(2500);
+        sleep(3500);
         robot.spinCarousel(1);
         sleep(1000);
         robot.spinCarousel(0);

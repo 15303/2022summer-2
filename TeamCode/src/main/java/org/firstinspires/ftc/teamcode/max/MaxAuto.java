@@ -22,14 +22,14 @@ private Robot robot;
         sleep(1000);
         robot.lifter.setPower(0);
 
-        robot.drive(0.5); //Driving to hub carefully
+        robot.drive(0.4); //Driving to hub carefully
         sleep(300);
         robot.drive(0.25);
         sleep(1200);
 
         robot.drive(0); //Offloading the game object onto the hub
         robot.grabber.setPower(-1);
-        sleep(2000);
+        sleep(4000);
         robot.grabber.setPower(0);
 
         sleep(4000); //Transition

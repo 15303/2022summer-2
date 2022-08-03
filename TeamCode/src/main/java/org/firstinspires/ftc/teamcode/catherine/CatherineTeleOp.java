@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.Robot;
 public class CatherineTeleOp extends LinearOpMode {
     private Robot robot; //store the robot
 
-    public void runOpMode() {
+     public void runOpMode() {
         robot = new Robot(this); //create a new Robot
 
         waitForStart(); //required

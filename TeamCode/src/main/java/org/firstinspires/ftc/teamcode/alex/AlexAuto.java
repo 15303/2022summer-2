@@ -40,7 +40,7 @@ public class AlexAuto extends LinearOpMode {
         robot.spinCarousel(0);
 
         robot.drive(0, 0.5);
-        sleep(200);
+        sleep(400);
         robot.drive(0.5);
         sleep (7000);
     }

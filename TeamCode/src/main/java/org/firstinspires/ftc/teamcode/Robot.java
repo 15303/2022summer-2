@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.ColorRangeSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
@@ -17,6 +19,7 @@ public class Robot {
 
     public CRServo grabber;
 
+    public ColorRangeSensor sensor;
     public BNO055IMU imu;
 
     private LinearOpMode opMode;
@@ -28,6 +31,15 @@ public class Robot {
         initMotors();
         initServos();
         imu = opMode.hardwareMap.get(BNO055IMU.class, "imu");
+        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+        parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.calibrationDataFile = "BNO055IMUCalibration.json"; // see the calibration sample opmode
+        parameters.loggingEnabled      = true;
+        parameters.loggingTag          = "IMU";
+        parameters.accelerationIntegrationAlgorithm = new JustLoggingAccelerationIntegrator();
+        imu.initialize(parameters);
+        sensor = opMode.hardwareMap.get(ColorRangeSensor.class, "sensor");
     }
 
     public void initMotors() {
@@ -47,6 +59,14 @@ public class Robot {
         grabber = opMode.hardwareMap.get(CRServo.class, "grabber");
     }
 
+    public void enableDriveEncoders() {
+        left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    }
+
     public void drive(double l, double r) {
         left.setPower(l);
         right.setPower(r);
@@ -54,6 +74,31 @@ public class Robot {
 
     public void drive(double power) {
         drive(power, power);
+    }
+
+    public void driveFor(double maxPower, int distance) {
+        int initialPos = getCurrentDrivePos();
+        int targetPos = initialPos + 2 * distance;
+        long startTime = System.currentTimeMillis();
+
+        while (Math.abs(getCurrentDrivePos() - targetPos) > 10 && opMode.opModeIsActive()) {
+            double absPower = maxPower;
+            //linearly accelerate to 1 power in 1000 ms
+            absPower = least(absPower, (System.currentTimeMillis() - startTime) / 1000.0);
+            //cap power based on distance
+        }
+        drive(0);
+    }
+
+    private int getCurrentDrivePos() {
+        return left.getCurrentPosition() + right.getCurrentPosition();
+    }
+
+    private double least(double one, double two) {
+        if (Math.abs(one) < Math.abs(two)) {
+            return one;
+        }
+        return two;
     }
 
     public void turn(double power) {
@@ -64,9 +109,9 @@ public class Robot {
         float initial = getOrientation();
         float target = initial + degrees;
         float diff = diff(target, getOrientation());
-        while (Math.abs(diff) > 5) {
+        while (Math.abs(diff) > 8 && opMode.opModeIsActive()) {
             diff = diff(target, getOrientation());
-            turn(diff > 0 ? 0.5 : -0.5);
+            turn(diff/100 + 0.2);
             opMode.sleep(10);
         }
     }

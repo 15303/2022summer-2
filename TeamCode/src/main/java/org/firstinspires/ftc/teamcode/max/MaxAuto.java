@@ -19,7 +19,7 @@ private Robot robot;
         initialize();
 
         robot.lifter.setPower(0.3); //Lifting up the arm for hub
-        sleep(365);
+        sleep(375);
         robot.lifter.setPower(-0.05);
 
         robot.drive(0.45); //Driving to hub carefully
@@ -32,7 +32,7 @@ private Robot robot;
         sleep(4000);
         robot.grabber.setPower(0);
 
-        sleep(2000); //Transition
+        sleep(1000); //Transition
 
         robot.lifter.setPower(0.3); //move lifter to not interfere with shuttle hub
         sleep(100);
@@ -63,7 +63,12 @@ private Robot robot;
         robot.spinCarousel(0);
 
         robot.drive(0.4); //To the end
-        sleep(4000);
+        sleep(2000);
+        robot.turn(-0.3); //turn to make sure not colliding with the object.
+        sleep(100);
+        robot.turn(0);
+        robot.drive(0.4);
+        sleep(2000);
 
 
     }

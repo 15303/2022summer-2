@@ -19,7 +19,7 @@ private Robot robot;
         initialize();
 
         robot.lifter.setPower(0.3); //Lifting up the arm for hub
-        sleep(375);
+        sleep(385);
         robot.lifter.setPower(-0.05);
 
         robot.drive(0.45); //Driving to hub carefully
@@ -65,7 +65,7 @@ private Robot robot;
         robot.drive(0.4); //To the end
         sleep(2000);
         robot.turn(-0.3); //turn to make sure not colliding with the object.
-        sleep(50); //Might not be needed
+        sleep(120); //Might not be needed, but actually maybe
         robot.turn(0);
         robot.drive(0.4);
         sleep(2000);

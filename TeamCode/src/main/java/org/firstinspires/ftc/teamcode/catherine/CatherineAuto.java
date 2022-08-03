@@ -25,17 +25,18 @@ public class CatherineAuto extends LinearOpMode {
         sleep(2000);
         robot.spinCarousel(0);
         sleep(500);
-        robot.drive(0.6);
-        sleep(700);
-        robot.turnDegrees(90);
+        robot.drive(0.5);
         sleep(500);
-        robot.drive(0.4);
-        sleep(500);
-        robot.lift(0.15);
-        sleep(600);
-        robot.grab(1);
+        robot.turnDegrees(100);
+        sleep(1000);
+        robot.drive(0.3);
+        sleep(400);
+        robot.lift(0.25);
         sleep(2000);
+        robot.grab(-1);
+        sleep(3000);
         robot.grab(0);
+        sleep(1000);
         robot.drive(-0.4);
         sleep(500);
 

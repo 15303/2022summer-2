@@ -19,7 +19,7 @@ private Robot robot;
         initialize();
 
         robot.lifter.setPower(0.3); //Lifting up the arm for hub
-        sleep(365);
+        sleep(375);
         robot.lifter.setPower(-0.05);
 
         robot.drive(0.45); //Driving to hub carefully
@@ -36,7 +36,7 @@ private Robot robot;
 
         robot.lifter.setPower(0.3); //move lifter to not interfere with shuttle hub
         sleep(100);
-        robot.lifter.setPower(0);
+        robot.lifter.setPower(0); //This turns the robot 90 degrees CCW somehow
 
         robot.drive(-0.35);//Turning and driving to be orientated toward the coursasel
         sleep(875);
@@ -48,28 +48,32 @@ private Robot robot;
         //robot.turnDegrees(90);
         robot.turn(-0.5);
         sleep(600);
-        robot.turn(0);
+        robot.turn(0); //Reset the robot controls while waiting
         robot.drive(0);
 
-        sleep(2000); //Transition
+        sleep(1000); //Transition
 
         robot.drive(-0.4); //Going to the carousel and spinning it
         sleep(1680);
         robot.drive(0);
         robot.spinCarousel(0.3);
-        sleep(4500);
-        robot.spinCarousel(1);
+        sleep(3500);
+        robot.spinCarousel(1); //Fast just in case but actually not needed
         sleep(1000);
         robot.spinCarousel(0);
 
         robot.drive(0.4); //To the end
         sleep(2000);
         robot.turn(-0.3); //turn to make sure not colliding with the object.
-        sleep(100);
+        sleep(50); //Might not be needed
         robot.turn(0);
         robot.drive(0.4);
-        sleep(1500);
+        sleep(2000);
 
+        robot.grabber.setPower(-1);
+        sleep(3000); //Just try to get a game object if it can
+
+        robot.grabber.setPower(0);
 
     }
 

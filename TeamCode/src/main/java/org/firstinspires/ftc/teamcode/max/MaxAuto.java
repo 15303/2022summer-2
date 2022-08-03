@@ -25,7 +25,7 @@ private Robot robot;
         robot.drive(0.45); //Driving to hub carefully
         sleep(120);
         robot.drive(0.25);
-        sleep(1700);
+        sleep(1500);
 
         robot.drive(0); //Offloading the game object onto the hub
         robot.grabber.setPower(1);
@@ -35,7 +35,7 @@ private Robot robot;
         sleep(4000); //Transition
 
         robot.drive(-0.35);//Turning and driving to be orientated toward the coursasel
-        sleep(900);
+        sleep(800);
         robot.drive(0);
         robot.lifter.setPower(-0.3);//Reset the lifter
         sleep(350);

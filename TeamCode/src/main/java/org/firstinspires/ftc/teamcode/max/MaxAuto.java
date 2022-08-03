@@ -18,17 +18,17 @@ private Robot robot;
 
         initialize();
 
-        robot.lifter.setPower(0.4); //Lifting up the arm for hub
-        sleep(1000);
+        robot.lifter.setPower(0.3); //Lifting up the arm for hub
+        sleep(400);
         robot.lifter.setPower(0);
 
         robot.drive(0.4); //Driving to hub carefully
-        sleep(300);
+        sleep(200);
         robot.drive(0.25);
         sleep(1200);
 
         robot.drive(0); //Offloading the game object onto the hub
-        robot.grabber.setPower(-1);
+        robot.grabber.setPower(1);
         sleep(4000);
         robot.grabber.setPower(0);
 
@@ -38,22 +38,20 @@ private Robot robot;
         sleep(1000);
         robot.drive(0);
 
-        robot.turn(0.5);
-        sleep(1000);
-        robot.turn(0);
+        robot.turnDegrees(90);
 
         sleep(4000); //Transition
 
-        robot.drive(-0.5); //Going to the carousel and spinning it
+        robot.drive(-0.4); //Going to the carousel and spinning it
         sleep(1500);
         robot.drive(0);
-        robot.spinCarousel(0.5);
+        robot.spinCarousel(0.3);
         sleep(2500);
         robot.spinCarousel(1);
         sleep(1000);
         robot.spinCarousel(0);
 
-        robot.drive(0.6); //To the end
+        robot.drive(0.4); //To the end
         sleep(3000);
 
 

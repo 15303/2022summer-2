@@ -49,7 +49,7 @@ private Robot robot;
         sleep(1500);
         robot.drive(0);
         robot.spinCarousel(0.3);
-        sleep(2500);
+        sleep(3500);
         robot.spinCarousel(1);
         sleep(1000);
         robot.spinCarousel(0);

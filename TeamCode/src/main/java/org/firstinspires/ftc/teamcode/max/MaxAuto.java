@@ -19,13 +19,13 @@ private Robot robot;
         initialize();
 
         robot.lifter.setPower(0.3); //Lifting up the arm for hub
-        sleep(375);
+        sleep(370);
         robot.lifter.setPower(0);
 
         robot.drive(0.4); //Driving to hub carefully
         sleep(150);
         robot.drive(0.25);
-        sleep(1500);
+        sleep(1700);
 
         robot.drive(0); //Offloading the game object onto the hub
         robot.grabber.setPower(1);

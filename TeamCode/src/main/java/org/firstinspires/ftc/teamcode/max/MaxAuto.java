@@ -35,15 +35,15 @@ private Robot robot;
         sleep(4000); //Transition
 
         robot.drive(-0.35);//Turning and driving to be orientated toward the coursasel
-        sleep(800);
+        sleep(900);
         robot.drive(0);
         robot.lifter.setPower(-0.3);//Reset the lifter
         sleep(350);
         robot.lifter.setPower(0);
 
-        robot.turnDegrees(90);
-        //robot.turn(-0.5);
-        //sleep(900);
+        //robot.turnDegrees(90);
+        robot.turn(-0.5);
+        sleep(900);
 
         sleep(4000); //Transition
 

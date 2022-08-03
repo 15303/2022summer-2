@@ -42,7 +42,11 @@ public class CatherineAuto extends LinearOpMode {
         sleep(400);
         robot.drive(0);
 
-
+        robot.turnDegrees(100);
+        sleep(500);
+        robot.drive(0.6);
+        sleep(5000);
+        robot.drive(0);
 
 
     }

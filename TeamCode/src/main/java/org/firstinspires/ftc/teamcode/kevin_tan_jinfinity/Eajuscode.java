@@ -42,4 +42,9 @@ public class Eajuscode extends LinearOpMode {
         sleep(3000);
         robot.drive(0);
     }
+
+    public void dlkfjioasdhfopus(int x, Robot y) {
+        y.drive(x);
+    }
 }
+

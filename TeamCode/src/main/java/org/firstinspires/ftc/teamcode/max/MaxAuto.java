@@ -25,7 +25,7 @@ private Robot robot;
         robot.drive(0.45); //Driving to hub carefully
         sleep(120);
         robot.drive(0.25);
-        sleep(1700);
+        sleep(1500);
 
         robot.drive(0); //Offloading the game object onto the hub
         robot.grabber.setPower(1);
@@ -41,9 +41,9 @@ private Robot robot;
         sleep(350);
         robot.lifter.setPower(0);
 
-        robot.turnDegrees(90);
-        //robot.turn(-0.5);
-        //sleep(900);
+        //robot.turnDegrees(90);
+        robot.turn(-0.5);
+        sleep(900);
 
         sleep(4000); //Transition
 

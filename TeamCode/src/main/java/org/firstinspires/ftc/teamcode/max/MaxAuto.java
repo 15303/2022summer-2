@@ -23,7 +23,7 @@ private Robot robot;
         robot.lifter.setPower(0);
 
         robot.drive(0.4); //Driving to hub carefully
-        sleep(200);
+        sleep(150);
         robot.drive(0.25);
         sleep(1500);
 
@@ -35,7 +35,7 @@ private Robot robot;
         sleep(4000); //Transition
 
         robot.drive(-0.35);//Turning and driving to be orientated toward the ball
-        sleep(1000);
+        sleep(500);
         robot.drive(0);
         robot.lifter.setPower(-0.3);//Reset the lifter
         sleep(300);
@@ -49,7 +49,7 @@ private Robot robot;
         sleep(1500);
         robot.drive(0);
         robot.spinCarousel(0.3);
-        sleep(2500);
+        sleep(3500);
         robot.spinCarousel(1);
         sleep(1000);
         robot.spinCarousel(0);

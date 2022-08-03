@@ -36,7 +36,7 @@ public class Eajuscode extends LinearOpMode {
         robot.drive(-0.5);
         sleep(300);
         robot.drive(0);
-        robot.spinCarousel(-0.3);
+        robot.spinCarousel(0.3);
         sleep(3000);
         robot.drive(0.4);
         sleep(3000);

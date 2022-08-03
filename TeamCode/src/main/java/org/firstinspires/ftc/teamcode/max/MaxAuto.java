@@ -47,16 +47,17 @@ private Robot robot;
 
         //robot.turnDegrees(90);
         robot.turn(-0.5);
-        sleep(800);
+        sleep(600);
         robot.turn(0);
+        robot.drive(0);
 
         sleep(2000); //Transition
 
         robot.drive(-0.4); //Going to the carousel and spinning it
-        sleep(1500);
+        sleep(1650);
         robot.drive(0);
         robot.spinCarousel(0.3);
-        sleep(3500);
+        sleep(4500);
         robot.spinCarousel(1);
         sleep(1000);
         robot.spinCarousel(0);

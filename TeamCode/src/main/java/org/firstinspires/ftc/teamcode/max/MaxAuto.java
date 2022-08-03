@@ -19,7 +19,7 @@ private Robot robot;
         initialize();
 
         robot.lifter.setPower(0.3); //Lifting up the arm for hub
-        sleep(300);
+        sleep(410);
         robot.lifter.setPower(0);
 
         robot.drive(0.4); //Driving to hub carefully
@@ -34,8 +34,8 @@ private Robot robot;
 
         sleep(4000); //Transition
 
-        robot.drive(-0.35);//Turning and driving to be orientated toward the ball
-        sleep(500);
+        robot.drive(-0.35);//Turning and driving to be orientated toward the coursasel
+        sleep(800);
         robot.drive(0);
         robot.lifter.setPower(-0.3);//Reset the lifter
         sleep(300);

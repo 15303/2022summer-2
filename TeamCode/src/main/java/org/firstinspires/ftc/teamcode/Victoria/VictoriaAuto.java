@@ -38,6 +38,11 @@ public class VictoriaAuto extends LinearOpMode {
         robot.grab(0);
         robot.drive(-0.4);
         sleep(500);
+        robot.turnDegrees(100);
+        sleep(500);
+        robot.drive(0.6);
+        sleep(5000);
+        robot.drive(0);
 
 
 

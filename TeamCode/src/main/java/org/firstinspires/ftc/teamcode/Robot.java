@@ -120,9 +120,9 @@ public class Robot {
         opMode.telemetry.addData("diff", diff);
         opMode.telemetry.update();
 
-        while (Math.abs(diff) > 5 && opMode.opModeIsActive()) {
+        while (Math.abs(diff) > 4 && opMode.opModeIsActive()) {
             diff = diff(target, getOrientation());
-            double power = diff / 100 + 0.1 * Math.signum(diff);
+            double power = diff / 100 + 0.2 * Math.signum(diff);
             turn(power);
             opMode.sleep(10);
             opMode.telemetry.addData("diff", diff);

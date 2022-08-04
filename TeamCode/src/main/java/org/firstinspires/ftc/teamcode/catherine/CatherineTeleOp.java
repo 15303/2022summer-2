@@ -21,8 +21,8 @@ public class CatherineTeleOp extends LinearOpMode {
             double turn = gamepad1.right_stick_x * 0.4;
             robot.driveComponent(drive, turn); //power the drive motors given the joystick controls
 
-            robot.aim(gamepad2.left_stick_x * 0.4);
-            robot.lift(-gamepad2.right_stick_y * 0.5);
+            robot.aim(gamepad2.left_stick_x * 0.3);
+            robot.lift(-gamepad2.right_stick_y * 0.3);
             robot.spinCarousel(gamepad1.right_trigger - gamepad1.left_trigger);
 
             if (gamepad2.a) {

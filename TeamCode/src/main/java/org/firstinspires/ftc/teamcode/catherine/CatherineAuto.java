@@ -49,7 +49,7 @@ public class CatherineAuto extends LinearOpMode {
         robot.drive(0);
         //warehouse parking fr//
         robot.turnDegrees(-95);
-        sleep(500);
+        sleep(1000);
         robot.drive(0.4);
         sleep(3000);
         robot.drive(0);

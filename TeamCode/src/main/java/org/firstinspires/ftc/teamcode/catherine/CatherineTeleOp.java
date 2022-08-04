@@ -29,7 +29,7 @@ public class CatherineTeleOp extends LinearOpMode {
                 robot.grab(1);
             } else if (gamepad2.b) {
                 robot.grab(-1);
-            } else if (gamepad2.right_trigger>0){
+            } else if (gamepad2.right_trigger>0.1){
                 robot.grab(0);
             }
         }

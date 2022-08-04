@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.alex;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.teamcode.Robot;
 
 @Autonomous(name = "AlexAuto")
@@ -32,9 +33,15 @@ public class AlexAuto extends LinearOpMode {
         robot.drive(0, 0.5);
         sleep(800);
         robot.drive(0, 0);
-        robot.drive(-0.35);
-        sleep(3000);
-        robot.drive(0);
+        {
+            double distance = robot.sensor.getDistance(DistanceUnit.CM);
+            while (distance > 1.0) {
+                distance = robot.sensor.getDistance(DistanceUnit.CM);
+                robot.drive(-0.1*distance);
+                sleep(20);
+            }
+            robot.drive(0);
+        }
         robot.spinCarousel(0.4);
         sleep(4000);
         robot.spinCarousel(0);
@@ -45,3 +52,7 @@ public class AlexAuto extends LinearOpMode {
         sleep (7000);
     }
 }
+
+//       robot.drive(-0.35);
+//       sleep(3000);
+//       robot.drive(0);

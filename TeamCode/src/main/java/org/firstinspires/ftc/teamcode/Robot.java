@@ -86,6 +86,14 @@ public class Robot {
             //linearly accelerate to 1 power in 1000 ms
             absPower = least(absPower, (System.currentTimeMillis() - startTime) / 1000.0);
             //cap power based on distance
+            absPower = least(absPower, Math.abs(getCurrentDrivePos() - targetPos)/30.0);
+
+            opMode.telemetry.addData("absPower", absPower);
+            opMode.telemetry.update();
+
+            drive((targetPos - getCurrentDrivePos()) > 0 ? absPower : -absPower);
+
+            opMode.sleep(10);
         }
         drive(0);
     }
@@ -107,28 +115,36 @@ public class Robot {
 
     public void turnDegrees(float degrees) {
         float initial = getOrientation();
-        float target = initial + degrees;
+        float target = (initial + degrees) % 360;
         float diff = diff(target, getOrientation());
-        while (Math.abs(diff) > 8 && opMode.opModeIsActive()) {
+        opMode.telemetry.addData("diff", diff);
+        opMode.telemetry.update();
+
+        while (Math.abs(diff) > 4 && opMode.opModeIsActive()) {
             diff = diff(target, getOrientation());
-            turn(diff/100 + 0.2);
+            double power = diff / 100 + 0.2 * Math.signum(diff);
+            turn(power);
             opMode.sleep(10);
+            opMode.telemetry.addData("diff", diff);
+            opMode.telemetry.addData("orient", getOrientation());
+            opMode.telemetry.addData("power", power);
+            opMode.telemetry.update();
         }
+        drive(0);
     }
 
     public float getOrientation() {
-        return imu.getAngularOrientation().firstAngle;
+        return -imu.getAngularOrientation().firstAngle;
     }
 
-    private float diff(float angle1, float angle2) {
-        float res = angle1 - angle2;
-        res %= 360;
-        if (res > 180) {
-            res -= 360;
-        } else if (res < -180) {
-            res += 360;
-        }
-        return res;
+    public static float diff(float a, float b) {
+        float d = Math.abs(a - b) % 360;
+        float r = d > 180 ? 360 - d : d;
+
+//calculate sign
+        float sign = (a - b >= 0 && a - b <= 180) || (a - b <=-180 && a- b>= -360) ? 1 : -1;
+        r *= sign;
+        return r;
     }
 
     public void driveComponent(double drive, double turn) {

@@ -37,8 +37,10 @@ public class AlexAuto extends LinearOpMode {
             double distance = robot.sensor.getDistance(DistanceUnit.CM);
             while (distance > 1.0) {
                 distance = robot.sensor.getDistance(DistanceUnit.CM);
+                telemetry.addData("d",distance);
+                telemetry.update();
                 robot.drive(-0.1*distance);
-                sleep(20);
+                sleep(10);
             }
             robot.drive(0);
         }

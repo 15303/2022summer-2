@@ -33,7 +33,7 @@ public class AlexAuto extends LinearOpMode {
         robot.turnDegrees(-90);
         sleep(800);
         robot.drive(-0.35);
-        sleep(2750);
+        sleep(2250);
         robot.drive(0);
 //        {
 //            double distance = robot.sensor.getDistance(DistanceUnit.CM);
@@ -47,8 +47,8 @@ public class AlexAuto extends LinearOpMode {
 //            }
 //            robot.drive(0);
 //        }
-        robot.spinCarousel(0.4);
-        sleep(4000);
+        robot.spinCarousel(0.3);
+        sleep(5000);
         robot.spinCarousel(0);
 
         robot.drive(0, 0.5);
